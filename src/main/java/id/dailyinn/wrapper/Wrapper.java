@@ -7,7 +7,8 @@ public class Wrapper {
         Logger logger = Logger.getLogger(Wrapper.class.getName());
         logger.info("Starting Dows Interface...");
         //System.setProperty("java.library.path", "C:\\Program Files (x86)\\DOWS\\LockingSystem5.1");
-        DowsJniApiInterface dows = new DowsJniApiInterface();
-        dows.dv_connect(1);
+        //DowsJniApiInterface dows = new DowsJniApiInterface();
+        //dows.dv_connect(1);
+        new Read();
     }
 }

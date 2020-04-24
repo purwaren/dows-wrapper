@@ -5,5 +5,5 @@ public class DowsJniApiInterface {
         System.loadLibrary("dcrf32");
     }
 
-    public native int dv_connect(int beep);
+    private native int dv_connect(int beep);
 }
