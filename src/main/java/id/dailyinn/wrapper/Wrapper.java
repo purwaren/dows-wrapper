@@ -1,14 +1,17 @@
 package id.dailyinn.wrapper;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import purejavahidapi.*;
+
+import java.util.List;
 
 public class Wrapper {
+    volatile static boolean deviceOpen = false;
     public static void main(String args[]) {
-        Logger logger = Logger.getLogger(Wrapper.class.getName());
+        Logger logger = LoggerFactory.getLogger(Wrapper.class);
         logger.info("Starting Dows Interface...");
-        //System.setProperty("java.library.path", "C:\\Program Files (x86)\\DOWS\\LockingSystem5.1");
-        //DowsJniApiInterface dows = new DowsJniApiInterface();
-        //dows.dv_connect(1);
-        new Read();
+        PureHidInterface hidInterface = new PureHidInterface((short) 0x0471, (short) 0xA112);
+        new Thread(hidInterface).start();
     }
 }
