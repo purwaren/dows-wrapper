@@ -33,5 +33,19 @@ public class Wrapper {
         String authCode = "205741";
         Memory auth = new Memory(authCode.length());
         auth.write(0, authCode.getBytes(), 0, authCode.length());
+        Memory cardno = new Memory(6);
+        Memory building = new Memory(2);
+        Memory room = new Memory(4);
+        Memory door = new Memory(2);
+        Memory arrival = new Memory(19);
+        Memory departure = new Memory(19);
+        dows.dv_read_card(auth, cardno, building, room, door, arrival, departure);
+
+        logger.info("[out] dv_read_card - cardno == {}", cardno.getString(0, "UTF-8"));
+        logger.info("[out] dv_read_card - building == {}", building.getString(0, "UTF-8"));
+        logger.info("[out] dv_read_card - room == {}", room.getString(0, "UTF-8"));
+        logger.info("[out] dv_read_card - door == {}", door.getString(0, "UTF-8"));
+        logger.info("[out] dv_read_card - arrival == {}", arrival.getString(0, "UTF-8"));
+        logger.info("[out] dv_read_card - departure == {}", departure.getString(0, "UTF-8"));
     }
 }
